@@ -56,18 +56,43 @@ if ($op == 'ubah') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <title>Data Talent Day Dan Extrakurikuler</title>
+    <link rel="shortcut icon" href="assets/faviconPenus-32x32.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+            borderRadius: {
+            '4xl': '3rem',
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body>
-    <nav class="navbar bg-body-tertiary mb-4">
-        <div class="container">
-            <a class="navbar-brand" href="#">CRUD
+<body class="bg-slate-200">
+    <nav class="h-20 bg-white shadow-md content-center">
+        <div class="flex justify-between mx-72">
+            <a href="#">
+                <img src="assets/logo.png" alt="logo penus" class="w-52">
+            </a>
+            <a href="#">
+                <button class="bg-blue-950 rounded-3xl w-28 h-12 font-bold text-xl text-white">Masuk</button>
             </a>
         </div>
     </nav>
-
+<div class="mx-72">
+    <div class="w-full h-96 bg-blue-950 rounded-4xl my-16 content-center">
+        <div class="">
+            <h1 class="font-extrabold text-3xl">Form Pendataan Talent & Ekskul Peserta Didik</h1>
+            <p class="font-medium ">Mohon mengisi seluruh data dibawah ini untuk melengkapi pendataan talent & ekskul siswa.</p>
+        </div>
+        <div class="">
+            <img src="assets/avatar.png" alt="">
+        </div>
+    </div>
     <div class="card">
         <?php
         if ($sukses) {
