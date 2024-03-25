@@ -65,6 +65,9 @@ if ($op == 'ubah') {
         extend: {
             borderRadius: {
             '4xl': '3rem',
+            },
+            width: {
+            '35': '36%',
           }
         }
       }
@@ -73,8 +76,8 @@ if ($op == 'ubah') {
 </head>
 
 <body class="bg-slate-200">
-    <nav class="h-20 bg-white shadow-md content-center">
-        <div class="flex justify-between mx-72">
+    <nav class="h-20 bg-white shadow-md">
+        <div class="flex justify-between mx-72 py-4">
             <a href="#">
                 <img src="assets/logo.png" alt="logo penus" class="w-52">
             </a>
@@ -84,16 +87,37 @@ if ($op == 'ubah') {
         </div>
     </nav>
 <div class="mx-72">
-    <div class="w-full h-96 bg-blue-950 rounded-4xl my-16 content-center">
-        <div class="">
-            <h1 class="font-extrabold text-3xl">Form Pendataan Talent & Ekskul Peserta Didik</h1>
-            <p class="font-medium ">Mohon mengisi seluruh data dibawah ini untuk melengkapi pendataan talent & ekskul siswa.</p>
-        </div>
-        <div class="">
-            <img src="assets/avatar.png" alt="">
+    <div class="my-16">
+        <div class="w-full h-96 bg-blue-950 rounded-4xl justify-between">
+            <div class="flex px-16 py-16">
+                <div class="text-white mt-20">
+                    <h1 class="font-black text-4xl">Form Pendataan Talent & Ekskul Peserta Didik</h1>
+                    <p class="font-medium ">Mohon mengisi seluruh data dibawah ini untuk melengkapi pendataan talent & ekskul siswa.</p>
+                </div>
+                <div class="">
+                    <img src="assets/rocket.png" alt="" class="w-72">
+                </div>
+            </div>
+            <div class="w-11/12 h-20 bg-white rounded-full ml-14 pl-14 flex gap-x-16 font-bold text-xl items-center">
+                <div class="flex gap-x-3 text-blue-950">
+                    <div class="w-7 bg-blue-950 rounded-full text-center text-white">1</div>
+                    <div>Informasi Data Siswa</div>
+                </div>
+                <div class="flex gap-x-3 text-gray-300">
+                    <div class="w-7 bg-gray-200 rounded-full text-center">2</div>
+                    <div>Validasi</div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="card">
+<div class="flex grid-rows-2">
+    <div class="h-20 w-35 bg-white rounded-3xl text-center py-6">
+        <button class="text-lg flex mx-7 gap-x-14 items-center">
+            <h1>Jadwal Pendataan Siswa</h1>
+            <img src="assets/arrow-top.png" alt="arrow-top" class="w-5">
+        </button>
+    </div>
+    <div class="ml-10 w-full">
         <?php
         if ($sukses) {
         ?>
@@ -114,31 +138,31 @@ if ($op == 'ubah') {
 
         <!-- Form untuk tambah data siswa -->
         <form action="simpan.php" method="POST">
-            <div class="mb-3 row">
-                <label for="NIK" class="col-sm-2 col-form-label">NIK SISWA</label>
-                <div class="col-sm-10">
-                    <input type="number" name="NIK" value="<?php echo $NIK ?>" class="form-control" id="NIK" placeholder="ex : 010101">
+            <div class="">
+                <div class="">
+                    <label for="NIK" class="font-bold text-lg">NIK SISWA <span class="text-red-600">*</span></label>
+                    <input type="number" name="NIK" value="<?php echo $NIK ?>" class="w-full h-14 mt-2 mb-6 rounded-lg border border-slate-300 pl-4 text-xl font-medium" id="NIK" placeholder="Isi NIK Siswa Dengan Benar">
                 </div>
-                <label for="nama" class="col-sm-2 col-form-label">Nama Siswa</label>
-                <div class="col-sm-10">
-                    <input type="text" name="nama" class="form-control" id="nama" value="<?php echo $nama ?>" placeholder="ex : Ucup">
+                <div class="">
+                    <label for="nama" class="font-bold text-lg">Nama Siswa <span class="text-red-600">*</span></label>
+                    <input type="text" name="nama" class="w-full h-14 mt-2 mb-6 rounded-lg border border-slate-300 pl-4 text-xl font-medium" id="nama" value="<?php echo $nama ?>" placeholder="Isi Nama Lengkap">
                 </div>
             </div>
 
-            <div class="mb-3 row">
-                <label for="kelas" class="col-sm-2 col-form-label">Kelas Siswa</label>
-                <div class="col-sm-10">
-                    <select id="kelas" name="kelas" class="form-select form-select-sm" aria-label="Small select example">
+            <div class="">
+                <label for="kelas" class="font-bold text-lg">Kelas Siswa <span class="text-red-600">*</span></label>
+                <div class="">
+                    <select id="kelas" name="kelas" class="w-96 h-14 mt-2 mb-6 rounded-lg border border-slate-300 pl-4 text-xl font-medium">
                         <option value="X" <?php if ($kelas == 'X') echo 'selected'; ?>>X</option>
                         <option value="XI" <?php if ($kelas == 'XI') echo 'selected'; ?>>XI</option>
                         <option value="XII" <?php if ($kelas == 'XII') echo 'selected'; ?>>XII</option>
                     </select>
                 </div>
             </div>
-            <div class="mb-3 row">
-                <label for="jurusan" class="col-sm-2 col-form-label">Jurusan Siswa</label>
-                <div class="col-sm-10">
-                    <select id="jurusan" name="jurusan" class="form-select" aria-label="Default select example">
+            <div class="">
+                <label for="jurusan" class="font-bold text-lg">Jurusan Siswa <span class="text-red-600">*</span></label>
+                <div class="">
+                    <select id="jurusan" name="jurusan" class="w-96 h-14 mt-2 mb-6 rounded-lg border border-slate-300 pl-4 text-xl font-medium">
                         <option value="Rekayasa Perangkat Lunak" <?php if ($jurusan == 'Rekayasa Perangkat Lunak') echo 'selected'; ?>>Rekayasa Perangkat Lunak</option>
                         <option value="Multimedia" <?php if ($jurusan == 'Multimedia') echo 'selected'; ?>>Multimedia</option>
                         <option value="Teknik Jaringan Dan Komputer" <?php if ($jurusan == 'Teknik Jaringan Dan Komputer') echo 'selected'; ?>>Teknik Jaringan Dan Komputer</option>
@@ -146,10 +170,10 @@ if ($op == 'ubah') {
                     </select>
                 </div>
             </div>
-            <div class="mb-3 row mt-4">
-                <label for="talent" class="col-sm-2 col-form-label">Talent Day</label>
-                <div class="col-sm-10">
-                    <select id="talent" name="talent" class="form-select">
+            <div class="">
+                <label for="talent" class="font-bold text-lg">Talent Day <span class="text-red-600">*</span></label>
+                <div class="">
+                    <select id="talent" name="talent" class="w-96 h-14 mt-2 mb-6 rounded-lg border border-slate-300 pl-4 text-xl font-medium">
                         <option value="Programming" <?php if ($talent == 'Programming') echo 'selected'; ?>>Programming</option>
                         <option value="Broadcasting" <?php if ($talent == 'Broadcasting') echo 'selected'; ?>>Broadcasting</option>
                         <option value="Animasi" <?php if ($talent == 'Animasi') echo 'selected'; ?>>Animasi</option>
@@ -158,10 +182,10 @@ if ($op == 'ubah') {
                     </select>
                 </div>
             </div>
-            <div class="mb-3 row mt-4">
-                <label for="eskul" class="col-sm-2 col-form-label">Extrakurikuler</label>
-                <div class="col-sm-10">
-                    <select id="eskul" name="eskul" class="form-select">
+            <div class="">
+                <label for="eskul" class="font-bold text-lg">Extrakurikuler <span class="text-red-600">*</span></label>
+                <div class="">
+                    <select id="eskul" name="eskul" class="w-96 h-14 mt-2 mb-6 rounded-lg border border-slate-300 pl-4 text-xl font-medium">
                         <option value="Badminton" <?php if ($eskul == 'Badminton') echo 'selected'; ?>>Badminton</option>
                         <option value="English Club" <?php if ($eskul == 'English Club') echo 'selected'; ?>>English Club</option>
                         <option value="Japan Club" <?php if ($eskul == 'Japan Club') echo 'selected'; ?>>Japan Club</option>
@@ -170,69 +194,73 @@ if ($op == 'ubah') {
                     </select>
                 </div>
             </div>
-        <div class="mb-3 row">
-            <label for="nama" class="col-sm-2 col-form-label">Nomor Whatsapp</label>
-            <div class="col-sm-10">
-                <input type="text" name="nomor_wa" class="form-control" id="no" value="<?php echo $nomor_wa ?>" placeholder="ex : 0857">
+        <div class="">
+            <label for="nama" class="font-bold text-lg">Nomor Whatsapp <span class="text-red-600">*</span></label>
+            <div class="">
+                <input type="text" name="nomor_wa" class="w-96 h-14 mt-2 mb-6 rounded-lg border border-slate-300 pl-4 text-xl font-medium" id="no" value="<?php echo $nomor_wa ?>" placeholder="Isi Dengan Nomorr WhatsApp">
             </div>
         </div>
-        <div class="col-12" align="left">
-            <button type="submit" name="simpan" value="Simpan Data" class="btn btn-primary">Simpan Data</button>
+        <div class="" align="left">
+            <button type="submit" name="simpan" value="Simpan Data" class="w-28 h-10 bg-blue-950 text-white text-center items-center font-medium rounded-3xl">Simpan Data</button>
         </div>
     </form>
+    </div>
+</div>
 
     <!-- Tabel untuk menampilkan data siswa -->
-    <div class="card">
-        <div class="card-header text-white bg-dark">
-            Data Siswa
+    <div class="my-10 w-full">
+        <div class="font-bold text-xl mb-5">
+            Data Talent Dan Ekskul Siswa
         </div>
-        <table class="card-body">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">NIK</th>
-                    <th scope="col">Nama Siswa</th>
-                    <th scope="col">Kelas</th>
-                    <th scope="col">Jurusan</th>
-                    <th scope="col">Talent</th>
-                    <th scope="col">Eskul</th>
-                    <th scope="col">Nomor Whatsapp</th>
-                    <th scope="col">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $query = "SELECT * FROM tb_siswa ORDER BY NIK ASC";
-                $tampil = mysqli_query($conn, $query);
-                $urut = 1;
-                while ($result = mysqli_fetch_array($tampil)) {
-                    $NIK = $result['NIK'];
-                    $nama = $result['nama'];
-                    $kelas = $result['kelas'];
-                    $jurusan = $result['jurusan'];
-                    $talent = $result['talent'];
-                    $eskul = $result['eskul'];
-                    $nomor_wa = $result['nomor_wa'];
-                ?>
+        <div class="overflow-auto rounded-lg shadow ">
+            <table class="w-full">
+                <thead class="border border-slate-400 text-white bg-blue-950 h-12">
                     <tr>
-                        <th scope="row"><?php echo $urut++; ?></th>
-                        <td><?php echo $NIK; ?></td>
-                        <td><?php echo $nama; ?></td>
-                        <td><?php echo $kelas; ?></td>
-                        <td><?php echo $jurusan; ?></td>
-                        <td><?php echo $talent; ?></td>
-                        <td><?php echo $eskul; ?></td>
-                        <td><?php echo $nomor_wa; ?></td>
-                        <td>
-                            <a href="index.php?op=ubah&NIK=<?php echo $NIK; ?>"><button type="button" class="btn btn-primary">Edit</button></a>
-                            <a href="delete.php?NIK=<?php echo $NIK; ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ???')"><button type="button" class="btn btn-danger">Hapus</button></a>
-                        </td>
+                        <th>No</th>
+                        <th>NIK</th>
+                        <th>Nama Siswa</th>
+                        <th>Kelas</th>
+                        <th>Jurusan</th>
+                        <th>Talent</th>
+                        <th>Eskul</th>
+                        <th>Nomor Whatsapp</th>
+                        <th>Aksi</th>
                     </tr>
-                <?php
-                }
-                ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php
+                    $query = "SELECT * FROM tb_siswa ORDER BY NIK ASC";
+                    $tampil = mysqli_query($conn, $query);
+                    $urut = 1;
+                    while ($result = mysqli_fetch_array($tampil)) {
+                        $NIK = $result['NIK'];
+                        $nama = $result['nama'];
+                        $kelas = $result['kelas'];
+                        $jurusan = $result['jurusan'];
+                        $talent = $result['talent'];
+                        $eskul = $result['eskul'];
+                        $nomor_wa = $result['nomor_wa'];
+                    ?>
+                        <tr class="border md:border-t-0 border-slate-400">
+                            <th class="text-lg text-center px-5 py-3"><?php echo $urut++; ?></th>
+                            <td class="text-lg text-center px-5 py-3"><?php echo $NIK; ?></td>
+                            <td class="text-lg text-center px-5 py-3"><?php echo $nama; ?></td>
+                            <td class="text-lg text-center px-5 py-3"><?php echo $kelas; ?></td>
+                            <td class="text-lg text-center px-5 py-3"><?php echo $jurusan; ?></td>
+                            <td class="text-lg text-center px-5 py-3"><?php echo $talent; ?></td>
+                            <td class="text-lg text-center px-5 py-3"><?php echo $eskul; ?></td>
+                            <td class="text-lg text-center px-5 py-3"><?php echo $nomor_wa; ?></td>
+                            <td class="text-lg text-center px-5 py-3">
+                                <a href="index.php?op=ubah&NIK=<?php echo $NIK; ?>"><button type="button" class="text-center items-center bg-blue-950 text-white w-12 rounded-full">Edit</button></a>
+                                <a href="delete.php?NIK=<?php echo $NIK; ?>" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini ???')"><button type="button" class="text-center items-center ml-1 bg-red-800 text-white w-16 rounded-full">Hapus</button></a>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 </body>
